@@ -25,7 +25,7 @@ def getCoords(file):
 
 # unpack tuple into 3 seperate lists
 # path to file is hardcoded from Ryp's machine
-xPos, yPos, zPos = getCoords(os.path.expanduser("~/Desktop/Kapapala.csv"))
+xPos, yPos, zPos = getCoords(os.path.expanduser("./kapapala_tracking.csv"))
 
 # find minimum x and y coordinates to bring trees closer to origin
 xMin = min(xPos)
@@ -48,9 +48,9 @@ for i in range(len(xPos)):
 
 # create a tree for every point
 # may want to verify that lists x and y are same size
-for i in range(len(x)): 
-    bpy.ops.import_scene.fbx("/Users/rypring/Desktop/ohiaproject/ohiatree.fbx")
-    
+for i in range(len(x)):
+    bpy.ops.import_scene.fbx("/users/mark/Repos/rapid-ohia-death/tree_models/1/4.fbx")
+
 # change position of each tree to normalized x,y coordinates
 i = 0
 for tree in bpy.data.objects:
