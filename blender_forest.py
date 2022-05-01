@@ -4,7 +4,8 @@ import csv
 import math
 import random
 
-MAX_ORD = 5
+MAX_ORD = 30
+CAMERA_HEIGHT = 50
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
 CROP_RANGE_Y = (-MAX_ORD, MAX_ORD)
@@ -13,7 +14,7 @@ FRAMES_PER_STEP = 5
 
 def flip_coin():
     val = random.random()
-    if val > 0.75:
+    if val > 0.50:
         return True
     return False
 
@@ -95,14 +96,22 @@ class Tree:
         self.type = random.randint(1,1)
         self.health = healthHistory[0]
         self.healthHistory = healthHistory
-        self.tree = None
+        self.name = None
 
     def load(self, health=4):
         self.health = health
+        if self.name is not None:
+            objs = bpy.data.objects
+            print("number of objects before removal:", len(objs))
+            objs.remove(objs[self.name], do_unlink=True)
+            print("number of objects after removal:", len(objs))
+
         fileName = "./tree_models/{}/{}.fbx".format(self.type, self.health)
         bpy.ops.import_scene.fbx( filepath = fileName )
-        self.tree = bpy.data.objects[-1]
-        self.tree.location = (self.x, self.y, self.z)
+        self.name = bpy.context.selected_objects[0].name
+        print("imported", self.name)
+        tree = bpy.context.selected_objects[0]
+        tree.location = (self.x, self.y, self.z)
 
 class Forest:
     def __init__(self, locationData):
@@ -119,30 +128,30 @@ class Forest:
             tree = Tree(row["x"], row["y"], row["z"], row["health"])
             tree.load()
             trees.append(tree)
+        print("NUM TREES:", len(trees))
         return trees
 
     def update(self, timeStep, strict=False):
-        i = 0
         for tree in self.trees:
             if tree.health != tree.healthHistory[timeStep]:
                 if flip_coin() or strict:
-                    print("ROD SPREAD in tree {}".format(i))
-                    tree.load(health=tree.healthHistory[timeStep])
-            i += 1
+                    print("ROD SPREAD")
+                    treeHealth = tree.health - 1
+                    if strict:
+                        treeHealth = tree.healthHistory[timeStep]
+                    tree.load(health=treeHealth)
 
 def render_image(outputDir="./images/", index="0"):
     bpy.context.scene.render.filepath = os.path.join(outputDir, index)
     bpy.ops.render.render(write_still = True)
 
-def move_camera(tx, ty, tz):
-    rx = ((180.0 / PI) * math.asin(ty/(tx+.001)))
-    ry = ((180.0 / PI) * math.acos(tx/(ty+.001)))
+def move_camera(tx, ty, tz, r=MAX_ORD):
+    rx = (180.0 / PI) * math.atan2(r, tz)
+    ry = 0.0
     if ty < 0.1 and ty > -0.1:
-        rz = 0
+        rz = (90.0) * (tx / abs(tx))
     else:
-        rz = ((180.0 / PI) * math.atan2(tx,(ty+.001)))
-    print("coords:",tx, ty)
-    print("angles:",rx, ry, rz)
+        rz = 180.0 - ((180.0 / PI) * (math.atan2(tx,(ty+.001))))
     fov = 50.0
 
     scene = bpy.data.scenes["Scene"]
@@ -159,17 +168,18 @@ def move_camera(tx, ty, tz):
 
 def time_lapse(forest):
     i = 0
-    r = MAX_ORD + 25
-    tz = 35.0
+    r = MAX_ORD + 40
+    tz = CAMERA_HEIGHT
     for timeStep in range(TIME_STEPS-1):
         for f in range(FRAMES_PER_STEP):
             forest.update(timeStep+1)
-            tx = r * math.cos(3.0*i*(PI/180.0))
-            ty = r * math.sin(3.0*i*(PI/180.0))
-            move_camera(tx, ty, tz)
+            tx = r * math.cos(i*(PI/180.0))
+            ty = r * math.sin(i*(PI/180.0))
+            move_camera(tx, ty, tz, r)
             render_image(index=str(i))
             i += 1
         forest.update(timeStep+1, strict=True)
+    print("TIMELAPSE COMPLETE")
 
 def load_location_data(fileName):
     loader = DataLoader(fileName)
