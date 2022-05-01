@@ -4,13 +4,24 @@ import csv
 import math
 import random
 
+"""
+==================================
+              CONFIG
+==================================
+"""
 MAX_ORD = 30
 CAMERA_HEIGHT = 50
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
 CROP_RANGE_Y = (-MAX_ORD, MAX_ORD)
-TIME_STEPS = 60
+START = 0
+STOP = 60
+TIME_STEPS = START - STOP
 FRAMES_PER_STEP = 5
+"""
+==================================
+"""
+
 
 def flip_coin():
     val = random.random()
@@ -80,7 +91,7 @@ class DataLoader:
                 tree["y"] = float(row[2])
                 # z is always 0; no consideration of terrain
                 tree["z"] = 0
-                tree["health"] = [int(x) for x in row[3:]]
+                tree["health"] = [int(x) for x in row[3+START:3+STOP]]
                 data.append(tree)
         self.data = data
         self._set_range()
@@ -170,7 +181,7 @@ def time_lapse(forest):
     i = 0
     r = MAX_ORD + 40
     tz = CAMERA_HEIGHT
-    for timeStep in range(TIME_STEPS-1):
+    for timeStep in range(START, STOP-1):
         for f in range(FRAMES_PER_STEP):
             forest.update(timeStep+1)
             tx = r * math.cos(i*(PI/180.0))
