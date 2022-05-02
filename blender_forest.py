@@ -9,8 +9,8 @@ import random
               CONFIG
 ==================================
 """
-MAX_ORD = 30
-CAMERA_HEIGHT = 50
+MAX_ORD = 100
+CAMERA_HEIGHT = 70
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
 CROP_RANGE_Y = (-MAX_ORD, MAX_ORD)
@@ -163,7 +163,7 @@ def move_camera(tx, ty, tz, r=MAX_ORD):
         rz = (90.0) * (tx / abs(tx))
     else:
         rz = 180.0 - ((180.0 / PI) * (math.atan2(tx,(ty+.001))))
-    fov = 50.0
+    fov = 200.0
 
     scene = bpy.data.scenes["Scene"]
     scene.render.resolution_x = 3840
