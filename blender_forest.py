@@ -163,11 +163,11 @@ def move_camera(tx, ty, tz, r=MAX_ORD):
         rz = (90.0) * (tx / abs(tx))
     else:
         rz = 180.0 - ((180.0 / PI) * (math.atan2(tx,(ty+.001))))
-    fov = 200.0
+    fov = 300.0
 
     scene = bpy.data.scenes["Scene"]
-    scene.render.resolution_x = 3840
-    scene.render.resolution_y = 2160
+    scene.render.resolution_x =1920
+    scene.render.resolution_y = 1030
     scene.camera.data.angle = fov*(PI/180.0)
     scene.camera.rotation_mode = 'XYZ'
     scene.camera.rotation_euler[0] = rx*(PI/180.0)
@@ -179,7 +179,7 @@ def move_camera(tx, ty, tz, r=MAX_ORD):
 
 def time_lapse(forest):
     i = 0
-    r = MAX_ORD + 40
+    r = MAX_ORD + 50
     tz = CAMERA_HEIGHT
     for timeStep in range(START, STOP-1):
         for f in range(FRAMES_PER_STEP):
