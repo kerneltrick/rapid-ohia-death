@@ -156,14 +156,9 @@ def render_image(outputDir="./images/", index="0"):
     bpy.context.scene.render.filepath = os.path.join(outputDir, index)
     bpy.ops.render.render(write_still = True)
 
-def move_camera(tx, ty, tz, r=MAX_ORD):
-    rx = (180.0 / PI) * math.atan2(r, tz)
-    ry = 0.0
-    if ty < 0.1 and ty > -0.1:
-        rz = (90.0) * (tx / abs(tx))
-    else:
-        rz = 180.0 - ((180.0 / PI) * (math.atan2(tx,(ty+.001))))
-    fov = 300.0
+def move_camera(tx, ty, tz, rx, ry, rz):
+
+        fov = 300.0
 
     scene = bpy.data.scenes["Scene"]
     scene.render.resolution_x =1920
@@ -177,16 +172,22 @@ def move_camera(tx, ty, tz, r=MAX_ORD):
     scene.camera.location.y = ty
     scene.camera.location.z = tz
 
-def time_lapse(forest):
+def time_lapse_circle(forest):
     i = 0
     r = MAX_ORD + 50
-    tz = CAMERA_HEIGHT
     for timeStep in range(START, STOP-1):
         for f in range(FRAMES_PER_STEP):
             forest.update(timeStep+1)
             tx = r * math.cos(i*(PI/180.0))
             ty = r * math.sin(i*(PI/180.0))
-            move_camera(tx, ty, tz, r)
+            tz = CAMERA_HEIGHT
+            rx = (180.0 / PI) * math.atan2(r, tz)
+            ry = 0.0
+            if ty < 0.1 and ty > -0.1:
+                rz = (90.0) * (tx / abs(tx))
+            else:
+                rz = 180.0 - ((180.0 / PI) * (math.atan2(tx,(ty+.001))))
+            move_camera(tx, ty, tz, rx, ry, rz)
             render_image(index=str(i))
             i += 1
         forest.update(timeStep+1, strict=True)
@@ -222,7 +223,7 @@ def main(args):
     setup()
     locationData = load_location_data(args["fileName"])
     forest = Forest(locationData)
-    time_lapse(forest)
+    time_lapse_circle(forest)
 
 if __name__ == "__main__":
     fileName = "kapapala_tracking.csv"
