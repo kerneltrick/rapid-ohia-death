@@ -154,6 +154,7 @@ class Forest:
 
 def render_image(outputDir="./images/", index="0"):
     bpy.context.scene.render.filepath = os.path.join(outputDir, index)
+    bpy.ops.render.view_show()
     bpy.ops.render.render(write_still = True)
 
 def move_camera(tx, ty, tz, rx, ry, rz):
