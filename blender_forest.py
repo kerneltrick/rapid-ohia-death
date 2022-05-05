@@ -15,7 +15,7 @@ PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
 CROP_RANGE_Y = (-MAX_ORD, MAX_ORD)
 START = 0
-STOP = 60
+STOP =  5
 TIME_STEPS = START - STOP
 FRAMES_PER_STEP = 5
 """
@@ -224,5 +224,8 @@ def main(args):
 
 if __name__ == "__main__":
     fileName = "kapapala_tracking.csv"
+    if len(sys.argv) > 1:
+        fileName = sys.argv[1]
+    print("reading data from:", fileName)
     args = {"fileName":fileName}
     main(args)
