@@ -10,13 +10,13 @@ import sys
               CONFIG
 ==================================
 """
-MAX_ORD =  5
+MAX_ORD = 100
 CAMERA_HEIGHT = 70
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
 CROP_RANGE_Y = (-MAX_ORD, MAX_ORD)
 START = 0
-STOP =  5
+STOP = 60 
 TIME_STEPS = START - STOP
 FRAMES_PER_STEP = 5
 """
