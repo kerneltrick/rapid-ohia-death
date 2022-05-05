@@ -22,7 +22,6 @@ FRAMES_PER_STEP = 5
 ==================================
 """
 
-
 def flip_coin():
     val = random.random()
     if val > 0.50:
@@ -157,9 +156,7 @@ def render_image(outputDir="./images/", index="0"):
     bpy.ops.render.render(write_still = True)
 
 def move_camera(tx, ty, tz, rx, ry, rz):
-
-        fov = 300.0
-
+    fov = 300.0
     scene = bpy.data.scenes["Scene"]
     scene.render.resolution_x =1920
     scene.render.resolution_y = 1030
