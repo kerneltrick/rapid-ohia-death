@@ -186,7 +186,9 @@ def time_lapse_circle(forest):
                 rz = (90.0) * (tx / abs(tx))
             else:
                 rz = 180.0 - ((180.0 / PI) * (math.atan2(tx,(ty+.001))))
+            print("moving camera")
             move_camera(tx, ty, tz, rx, ry, rz)
+            print("rendering image")
             render_image(index=str(i))
             i += 1
         forest.update(timeStep+1, strict=True)
