@@ -10,7 +10,7 @@ import sys
               CONFIG
 ==================================
 """
-MAX_ORD = 100
+MAX_ORD = 20 
 CAMERA_HEIGHT = 70
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
