@@ -226,7 +226,7 @@ def main(args):
 if __name__ == "__main__":
     fileName = "kapapala_tracking.csv"
     if len(sys.argv) > 1:
-        fileName = sys.argv[1]
+        fileName = sys.argv[-1]
     print("reading data from:", fileName)
     args = {"fileName":fileName}
     main(args)
