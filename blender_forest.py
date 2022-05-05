@@ -10,7 +10,7 @@ import sys
               CONFIG
 ==================================
 """
-MAX_ORD = 20 
+MAX_ORD = 20
 CAMERA_HEIGHT = 70
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
@@ -174,6 +174,7 @@ def time_lapse_circle(forest):
     i = 0
     r = MAX_ORD + 50
     for timeStep in range(START, STOP-1):
+        print("Renderring frame", timeStep)
         for f in range(FRAMES_PER_STEP):
             forest.update(timeStep+1)
             tx = r * math.cos(i*(PI/180.0))
