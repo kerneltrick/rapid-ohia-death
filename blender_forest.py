@@ -10,15 +10,16 @@ import sys
               CONFIG
 ==================================
 """
-MAX_ORD = 100
-CAMERA_HEIGHT = 70
+MAX_ORD = 10
+CAMERA_HEIGHT = 30
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
 CROP_RANGE_Y = (-MAX_ORD, MAX_ORD)
 START = 0
-STOP = 60 
+STOP = 60
 TIME_STEPS = START - STOP
 FRAMES_PER_STEP = 5
+NUM_TREE_VARIETIES = 2
 """
 ==================================
 """
@@ -104,7 +105,7 @@ class Tree:
         self.x = x
         self.y = y
         self.z = z
-        self.type = random.randint(1,1)
+        self.type = random.randint(1,NUM_TREE_VARIETIES)
         self.health = healthHistory[0]
         self.healthHistory = healthHistory
         self.name = None
@@ -154,11 +155,10 @@ class Forest:
 
 def render_image(outputDir="./images/", index="0"):
     bpy.context.scene.render.filepath = os.path.join(outputDir, index)
-    bpy.ops.export_scene.obj(filepath=outputDir + index + ".obj")
-    #bpy.ops.render.render(write_still = True)
+    bpy.ops.render.render(write_still = True)
 
 def move_camera(tx, ty, tz, rx, ry, rz):
-    fov = 300.0
+    fov = 100.0
     scene = bpy.data.scenes["Scene"]
     scene.render.resolution_x =1920
     scene.render.resolution_y = 1030
@@ -173,7 +173,7 @@ def move_camera(tx, ty, tz, rx, ry, rz):
 
 def time_lapse_circle(forest):
     i = 0
-    r = MAX_ORD + 50
+    r = 1.5 * MAX_ORD
     for timeStep in range(START, STOP-1):
         print("Renderring frame", timeStep)
         for f in range(FRAMES_PER_STEP):
@@ -201,7 +201,7 @@ def load_location_data(fileName):
     return data
 
 def load_terrain():
-    fileName = "./tree_models/plane.fbx"
+    fileName = "./tree_models/ground.fbx"
     bpy.ops.import_scene.fbx( filepath = fileName )
 
 def create_light():
@@ -219,7 +219,7 @@ def delete_cube_and_light():
 def setup():
     delete_cube_and_light()
     create_light()
-    #load_terrain()
+    load_terrain()
 
 def main(args):
     setup()
@@ -229,8 +229,6 @@ def main(args):
 
 if __name__ == "__main__":
     fileName = "kapapala_tracking.csv"
-    if len(sys.argv) > 1:
-        fileName = sys.argv[-1]
     print("reading data from:", fileName)
     args = {"fileName":fileName}
     main(args)
