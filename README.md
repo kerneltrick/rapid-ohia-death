@@ -10,6 +10,8 @@ The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Rin
 
 # How to use this code
 
+**Data**
+
 We first must understand the format of the data. Data given to us on the spread of Rapid Ohia Death cannot be shared publicly, however, the format of the data is roughly as seen below:
 
 |Tree ID     | X_Coordinate |  Y_Coordinate       |  TimeStamp1
@@ -25,9 +27,44 @@ We had about 4000 total trees, with about 60 timestamps, what you see above is s
 
 The basic idea here is we place a tree at its coordinate, and choose the appropriate 3D model of a tree to place (as indicated by its health) <br>
 
+**Models**
+
 Now that we understand the format of the data this code uses, we need models to put into our 3D environment.  We created .fbx models in Blender with the tree sapling plugin and used those as our models. 
 
-If you want to use more realistic models or any other model in .fbx format, that is fine. We chose "simple" models because it is very computationally demanding to make renders of 3D environments. Name the models as "0.fbx", "1.fbx", "2.fbx", "3.fbx" and "4.fbx" so that a model has the same name of the health of a tree. In order to add more variation to our forest, we had several folders with these 5 fbx files in them. These folders are named 1, 2 and 3. An example filepath to these models would be: "./3/4.fbx" denoting a tree of type 4 variation 3.
+If you want to use more realistic models or any other model in .fbx format, that is fine. We chose "simple" models because it is very computationally demanding to make renders of 3D environments. Name the models as "0.fbx", "1.fbx", "2.fbx", "3.fbx" and "4.fbx" so that a model has the same name of the health of a tree. In order to add more variation to our forest, we had several folders with these 5 fbx files in them. These folders are named 1, 2 and 3. An example filepath to these models would be: "./tree_models/3/4.fbx" denoting a tree of type 4 (Healthy) and variation 3.
+
+(tree model pic)
+
+We also need a terrain to place our trees on, so we made another model in Blender that is just a plane. Again, we kept it simple due to the computational demands of this program.
+
+(plane pic)
+
+**Code**
+
+At the top of the script, there's a config that allows you to tweak variables based on the type of visualization you want to make. 
+
+MAX_ORD is the size of the x,y plane that the visualization will be generated on.
+
+CAMERA_HEIGHT is the height of the camera, pointed towards the origin. 
+
+START is ????
+
+STOP is ????
+
+FRAMES_PER_STEP is the number of frames at a particular location 
+
+NUM_TREE_VARIETIES would be the number of variations on the fbx tree models you've used
+
+**Run the code**
+
+Now that we have the data, models and source code in the same directory, we can run the code using the following:
+
+```bash
+blender -P blender_forest.py
+```
+
+This will create a directory of images that will be used to make a short video of your visualization. 
+
 
 <br>
 
