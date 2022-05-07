@@ -29,3 +29,12 @@ Now that we understand the format of the data this code uses, we need models to 
 
 If you want to use more realistic models or any other model in .fbx format, that is fine. We chose "simple" models because it is very computationally demanding to make renders of 3D environments. Name the models as "0.fbx", "1.fbx", "2.fbx", "3.fbx" and "4.fbx" so that a model has the same name of the health of a tree. In order to add more variation to our trees, we had 
 
+<br>
+
+# Visualizing Rapid Ohia Death Spread
+
+![2D Rod Spread Vizualization](/githyb/rod_spread_2d.gif)
+
+ 
+  
+
