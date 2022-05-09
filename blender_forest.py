@@ -5,7 +5,6 @@ import math
 import random
 import sys
 
-from utils.render_video import render_video
 
 """
 ==================================
@@ -96,8 +95,6 @@ class DataLoader:
                 # z is always 0; no consideration of terrain
                 tree["z"] = 0
                 tree["health"] = [int(x) for x in row[3+START:3+STOP]]
-                if tree["health"] < 0:
-                    tree["health"] = 0
                 data.append(tree)
         self.data = data
         self._set_range()
@@ -116,6 +113,8 @@ class Tree:
         self.name = None
 
     def load(self, health=4):
+        if health < 0:
+            health = 0
         self.health = health
         if self.name is not None:
             objs = bpy.data.objects
@@ -133,7 +132,7 @@ class Tree:
 class Forest:
     def __init__(self, locationData):
         self.locationData = locationData
-        self._models_dir = "./tree_models/"
+        self._models_dir = "./blender/tree_models/"
         self.trees = self._build_forest()
 
     def _build_forest(self):
@@ -229,13 +228,52 @@ def delete_cube_and_light():
 def setup():
     delete_cube_and_light()
     create_light()
-    load_terrain()
+    #load_terrain()
 
 def main(args):
     setup()
     locationData = load_location_data(args["fileName"])
     forest = Forest(locationData)
     time_lapse_circle(forest)
+
+def render_video(video_name="../videos/ohia_spread", image_folder="../images/3d"):
+    date = datetime(2010, 6, 10)
+    endDate = datetime(2021, 10, 23)
+    date += timedelta(days=1)
+
+    if len(sys.argv) > 1:
+        image_folder = sys.argv[1]
+    if len(sys.argv) > 2:
+        video_name = sys.argv[2]
+    images = [img for img in os.listdir(image_folder) if (img.endswith(".png") or img.endswith(".jpg"))]
+    numImages = len(images)
+    frame = cv2.imread(os.path.join(image_folder, images[0]))
+    height, width, layers = frame.shape
+    fps = 10
+    video = cv2.VideoWriter(video_name, 0, fps, (width,height))
+
+    timeIncrement = (endDate - date) /numImages
+    for i in range(numImages):
+        imageFileName = str(i) + ".png"
+        path = os.path.join(image_folder, imageFileName)
+        image = cv2.imread(path)
+        window_name = 'Image'
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        org = (50, 150)
+        fontScale = 4
+        color = (255, 255, 255)
+        thickness = 2
+        text = date.strftime("Year: %Y")
+        image = cv2.putText(image, text, org, font, fontScale, color, thickness, cv2.LINE_AA)
+        org = (50, 400)
+        text = date.strftime("Month: %m")
+        image = cv2.putText(image, text, org, font, fontScale, color, thickness, cv2.LINE_AA)
+        print("writing image", i)
+        video.write(image)
+        date += timeIncrement
+
+    cv2.destroyAllWindows()
+    video.release()
 
 if __name__ == "__main__":
     fileName = "kapapala_tracking.csv"
