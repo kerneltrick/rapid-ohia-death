@@ -53,19 +53,25 @@ Our system follows a very simple loop. Data is read in (data format is specified
 
 ### Clone this repo
 
+In order to run our render script, you will need to clone this repo. We assume you have git installed on your computer, if not, [please see these instructsions]. We also assume that you have some basic familiarity with command line tools and can navigate to the right place in your computer. Finally, we assume that you have followed the above recommendations to install Blender, Python and Conda, which are prerequisites to running our system. With those requisites out of the way, run:
+
 ```bash
 git clone git@github.com:kerneltrick/rapid-ohia-death.git
 ```
 ### Setup
+
+Now that you have the code, change your working directory to the repo. We have included a setup shell script that will load the tree models we used here for our forest. See the below section on tree models for details on how these tree models are saved.
 
 ```bash
 chmod 777 ./setup.sh
 ./setup.sh
 ```
 
+Once you are done setting up your codebase, you are ready to start visualizing, but first, lets talk about your data.
+
 ### Data
 
-We first must understand the format of the data. Data given to us on the spread of Rapid Ohia Death cannot be shared publicly, however, the format of the data is roughly as seen below:
+We first must specify the format of the data. Data given to us on the spread of Rapid Ohia Death cannot be shared publicly, however, the format of the data is roughly as seen below:
 
 |Tree ID     | X_Coordinate |  Y_Coordinate       |  TimeStamp1
 |------------|--------------|---------------------|-----------------

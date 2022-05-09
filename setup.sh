@@ -15,8 +15,4 @@ gdown $tree_models -O ./blender.zip
 unzip ./blender.zip
 rm ./blender.zip
 
-# GET DATA
-#DATA="1EaM1nWAz5fdBYsX2Sgeb65wWETbQaegf"
-#gdown $DATA -O ./kapapala_tracking.csv
-
 echo "SETUP FINISHED"
