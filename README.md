@@ -108,4 +108,8 @@ blender --background myFile.blend -P blender_forest.py
 
 It should be noted that all the trees are placed at z = 0, meaning that they are all on the ground.  
 
+Now, you should have a folder named 'images' with all the frames of your video.
+
+If you run render_video.py, this will take all images and convert them into a .avi file
+
 <br>
