@@ -55,11 +55,12 @@ If you want to use more realistic models or any other model in .fbx format, that
 
 We also need a terrain to place our trees on, so we made another model in Blender that is just a plane. Again, we kept it simple due to the computational demands of this program.
 
-**Code**
+## Config
+
+At the top of the script, there's a config that allows you to tweak variables based on the type of visualization you want to make.
 
 <ul>
 
-<li> At the top of the script, there's a config that allows you to tweak variables based on the type of visualization you want to make. </li>
 
 <li> MAX_ORD is the size of the x,y plane that the visualization will be generated on. </li>
 
