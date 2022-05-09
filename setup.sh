@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # SETUP ENV
+conda env create -f environment.yml
 pip install gdown
 
 # SETUP DIRS
