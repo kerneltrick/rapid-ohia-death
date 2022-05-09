@@ -123,7 +123,7 @@ class Tree:
             objs.remove(objs[self.name], do_unlink=True)
             print("number of objects after removal:", len(objs))
 
-        fileName = "./tree_models/{}/{}.fbx".format(self.type, self.health)
+        fileName = "./blender/tree_models/{}/{}.fbx".format(self.type, self.health)
         bpy.ops.import_scene.fbx( filepath = fileName )
         self.name = bpy.context.selected_objects[0].name
         print("imported", self.name)
