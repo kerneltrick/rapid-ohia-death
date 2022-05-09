@@ -20,6 +20,8 @@ The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Rin
 
 ## 3D Visualization
 
+![3D Rod Spread Vizualization](/github/RODflyover2.gif)
+
 # How to use this code
 
 **Data**
