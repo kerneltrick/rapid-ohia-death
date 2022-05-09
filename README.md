@@ -1,6 +1,6 @@
 # Introduction
 
-Ohia trees are one of the ecological keystones of native Hawaiian Forests. There importance is imminent in Hawaiian ecology, but their cultural and religious significance is also key to Hawaii's people. A pathogen known as Rapid Ohia Death (ROD) is a newly identified fungus that threatens native forests. Creating a visualization of the spread of Rapid Ohia Death is critical to communicating the danger this pathogen presents to Hawaii's forests. This software is a tool that helps us show the spread of Rapid Ohia Death. If you have the right data and the computing power, you could use this software to render 3D visualizations of ROD progression in any forest. Moreover, if you are a ROD researcher, and you have data on the progression of this pathogen in Native Hawaiian forests, you can use our tools here to visualize your data in 3D, without needing to understand complicated graphical tools, but with a simple knowledge of Python. If you are an artist or software developer and you can expand on our efforts to visualize the destruction of this dangerous pathogen, we encourage you build on these tools, so we have provided documentation on the process and components of our system in this README.
+Ohia trees are one of the ecological keystones of native Hawaiian Forests. Their importance is imminent in Hawaiian ecology, but their cultural and religious significance is also key to Hawaii's people. A pathogen known as Rapid Ohia Death (ROD) is a newly identified fungus that threatens native forests. Creating a visualization of the spread of Rapid Ohia Death is critical to communicating the danger this pathogen presents to Hawaii's forests. This software is a tool that helps us show the spread of Rapid Ohia Death. If you have the right data and the computing power, you could use this software to render 3D visualizations of ROD progression in any forest. Moreover, if you are a ROD researcher, and you have data on the progression of this pathogen in Native Hawaiian forests, you can use our tools here to visualize your data in 3D, without needing to understand complicated graphical tools, but with a simple knowledge of Python. If you are an artist or software developer and you can expand on our efforts to visualize the destruction of this dangerous pathogen, we encourage you build on these tools, so we have provided documentation on the process and components of our system in this README.
 
 We use [Blender](https://www.blender.org/download/) as our 3D modeling software and [Python](https://www.python.org/downloads/) to generate tree models and render images of our virtual forest. The data was provided to us by Dr. Ryan Perroy, a researcher on the spread of Rapid Ohia Death. The models that we used are in .fbx format, and we made in Blender using the Tree Sapling Plugin.
 
@@ -162,7 +162,13 @@ blender --background myFile.blend -P blender_forest.py
 
 It should be noted that all the trees are placed at z = 0, meaning that they are all on the ground.  
 
-The bpy script will finish executing and produce an output video in
+The bpy script will finish running and produce a set of images. To render the video, type:
+
+```bash
+./utils/render_video.py
+```
+
+The output video will be saved in:
 
 ```bash
 /videos

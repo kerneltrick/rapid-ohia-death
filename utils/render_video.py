@@ -51,8 +51,11 @@ def render_video(video_name="../videos/ohia_spread", image_folder="../images/3d"
 
 if __name__=="__main__":
 
-    if len(sys.argv) < 2:
-        print("USAGE:", sys.argv[0], "imageDir")
-        exit(2)
-    imageDir = sys.argv[1]
+    print("USAGE:", sys.argv[0], "imageDir")
+
+    imageDir = "./images/3d/"
+    if len(sys.argv) > 2:
+        imageDir = sys.argv[1]
+
+
     render_video("../videos/video.avi", imageDir)
