@@ -17,3 +17,4 @@ unzip ./blender.zip
 rm ./blender.zip
 
 echo "SETUP FINISHED"
+echo "to activate environment, type: 'conda activate ohia'"
