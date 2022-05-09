@@ -9,13 +9,13 @@ mkdir images
 mkdir videos
 
 # GET WEIGHTS
-tree_models="16tGVyZICngIh8NyGJYmoX84JncA3tKW-"
-gdown $BINARY_MODEL -O ./saved_weights/binary_model_default.zip
-unzip ./saved_weights/binary_model_default.zip -d ./saved_weights/
+tree_models="1rh880TADXrl3AlrLmePUK_4qG2G2Lzjb"
+gdown $tree_models -O ./blender.zip
+unzip ./blender.zip
+rm ./blender.zip
 
 # GET DATA
-DATA="1ddl19yfm_2uv7_zoYC73SCEW_hB-4aAZ"
-gdown $DATA -O ./data/Kauai_CRP.zip
-unzip ./data/Kauai_CRP -d ./data/
+DATA="1EaM1nWAz5fdBYsX2Sgeb65wWETbQaegf"
+gdown $DATA -O ./kapapala_tracking.csv
 
 echo "SETUP FINISHED"
