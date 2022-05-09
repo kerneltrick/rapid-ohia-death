@@ -33,7 +33,7 @@ Now that we understand the format of the data this code uses, we need models to 
 
 If you want to use more realistic models or any other model in .fbx format, that is fine. We chose "simple" models because it is very computationally demanding to make renders of 3D environments. Name the models as "0.fbx", "1.fbx", "2.fbx", "3.fbx" and "4.fbx" so that a model has the same name of the health of a tree. In order to add more variation to our forest, we had several folders with these 5 fbx files in them. These folders are named 1, 2 and 3. An example filepath to these models would be: "./tree_models/3/4.fbx" denoting a tree of type 4 (Healthy) and variation 3.
 
-![](https://github.com/kerneltrick/rapid-ohia-death/blob/master/tree_example.JPG)
+![](/github/tree_example.JPG)
 
 We also need a terrain to place our trees on, so we made another model in Blender that is just a plane. Again, we kept it simple due to the computational demands of this program.
 
@@ -77,7 +77,7 @@ It should be noted that all the trees are placed at z = 0, meaning that they are
 
 # Visualizing Rapid Ohia Death Spread
 
-![2D Rod Spread Vizualization](/githyb/rod_spread_2d.gif)
+![2D Rod Spread Vizualization](/github/rod_spread_2d.gif)
 
  
   
