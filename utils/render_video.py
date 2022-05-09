@@ -1,4 +1,5 @@
 import os
+import sys
 import cv2
 from datetime import datetime
 from datetime import timedelta
@@ -10,19 +11,25 @@ date += timedelta(days=1)
 
 image_folder = 'images'
 video_name = 'ohia_spread.avi'
+if len(sys.argv) > 1:
+    image_folder = sys.argv[1]
+if len(sys.argv) > 2:
+    video_name = sys.argv[2]
 
-images = [img for img in os.listdir(image_folder) if img.endswith(".png")]
+
+images = [img for img in os.listdir(image_folder) if (img.endswith(".png") or img.endswith(".jpg"))]
 numImages = len(images)
+print(images)
 
 frame = cv2.imread(os.path.join(image_folder, images[0]))
 height, width, layers = frame.shape
 
-fps = 20
+fps = 10 
 video = cv2.VideoWriter(video_name, 0, fps, (width,height))
 
 timeIncrement = (endDate - date) /numImages
 for i in range(numImages):
-    imageFileName = str(i) + ".png"
+    imageFileName = "rod_" + str(i) + ".jpg"
     path = os.path.join(image_folder, imageFileName)
     image = cv2.imread(path)
     window_name = 'Image'

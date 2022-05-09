@@ -10,7 +10,7 @@ import sys
               CONFIG
 ==================================
 """
-MAX_ORD = 10
+MAX_ORD = 30
 CAMERA_HEIGHT = 30
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
@@ -104,8 +104,8 @@ class Tree:
     def __init__(self, x, y, z=0, healthHistory = None ):
         self.x = x
         self.y = y
-        self.z = z
-        self.type = random.randint(1,NUM_TREE_VARIETIES)
+        self.z = math.tan(5.3*(PI/180.0)) * y
+        self.type = random.randint(2,NUM_TREE_VARIETIES)
         self.health = healthHistory[0]
         self.healthHistory = healthHistory
         self.name = None
@@ -213,8 +213,12 @@ def create_light():
 
 def delete_cube_and_light():
     objs = bpy.data.objects
-    objs.remove(objs["Light"], do_unlink=True)
-    objs.remove(objs["Cube"], do_unlink=True)
+    if "Light" in objs:
+        objs.remove(objs["Light"], do_unlink=True)
+    if "my-light" in objs:
+        objs.remove(objs["my-light"], do_unlink=True)
+    if "Cube" in objs:
+        objs.remove(objs["Cube"], do_unlink=True)
 
 def setup():
     delete_cube_and_light()
