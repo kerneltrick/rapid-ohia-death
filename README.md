@@ -8,6 +8,18 @@ The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Rin
 
 <br>
 
+# Visualizing Rapid Ohia Death Spread
+
+## Location Data
+
+<p>
+ 
+![2D Rod Spread Vizualization](/github/ohia_spread_2d.gif)
+
+</p> 
+
+## 3D Visualization
+
 # How to use this code
 
 **Data**
@@ -83,12 +95,6 @@ It should be noted that all the trees are placed at z = 0, meaning that they are
 
 <br>
 
-# Visualizing Rapid Ohia Death Spread
 
-<p>
- 
-![2D Rod Spread Vizualization](/github/ohia_spread_2d.gif)
-
-</p> 
   
 
