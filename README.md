@@ -16,7 +16,7 @@ The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Rin
 
 ## Location Data
 
-ROD can spread over an extended time frame, causing devastation to an enormous landmass over the course of a decade or more. [Researchers at the Univrsity of Hawaii](https://www.mdpi.com/1999-4907/12/8/1035) have collected location data in order to track the spread of ROD over time in a single forest, and discover the patterns that characterize the communication of the pathogen through a forest. This 2-D data is useful for visualizing how large of an area ROD can spread over in a short time. We can visualize this spread with the script (/utils/2d-spread.py)
+ROD can spread over an extended time frame, causing devastation to an enormous landmass over the course of a decade or more. [Researchers at the Univrsity of Hawaii](https://www.mdpi.com/1999-4907/12/8/1035) have collected location data in order to track the spread of ROD over time in a single forest, and discover the patterns that characterize the communication of the pathogen through a forest. This 2-D data is useful for visualizing how large of an area ROD can spread over in a short time. We can visualize this spread with the script (/utils/2d_change_over_time.py). Simply 
 
 <p>
 
@@ -119,3 +119,7 @@ Now, you should have a folder named 'images' with all the frames of your video.
 If you run render_video.py, this will take all images and convert them into a .avi file
 
 <br>
+
+# Acknowldegments
+
+We would like to thank the instructors at the University of Hawaii at Hilo Computer Science and Art Departments for guidance in developing these software tools. We would also like give special thanks to Dr. Ryan Perroy, who generously guided us and gave feedback throughout the design, planning, and development stages.
