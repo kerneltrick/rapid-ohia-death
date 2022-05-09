@@ -4,12 +4,11 @@
 pip install gdown
 
 # SETUP DIRS
-mkdir blender
 mkdir images
 mkdir videos
 
 # GET WEIGHTS
-tree_models="1rh880TADXrl3AlrLmePUK_4qG2G2Lzjb"
+tree_models="10tWYEYthPRpV89Qml3t1H7HHRishK0GX"
 gdown $tree_models -O ./blender.zip
 unzip ./blender.zip
 rm ./blender.zip

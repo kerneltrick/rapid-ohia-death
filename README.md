@@ -32,6 +32,18 @@ ROD can spread over an extended time frame, causing devastation to an enormous l
 
 # How to use this code
 
+### Clone this repo
+
+```bash
+git clone git@github.com:kerneltrick/rapid-ohia-death.git
+```
+### Setup
+
+```bash
+chmod 777 ./setup.sh
+./setup.sh
+```
+
 ### Data
 
 We first must understand the format of the data. Data given to us on the spread of Rapid Ohia Death cannot be shared publicly, however, the format of the data is roughly as seen below:
@@ -83,7 +95,7 @@ At the top of the script, there's a config that allows you to tweak variables ba
 
 </ul>
 
-**Run the code**
+## Run the code
 
 Now that we have the data, models and source code in the same directory, we can run the code using the following:
 
