@@ -24,7 +24,7 @@ ROD can spread over an extended time frame, causing devastation to an enormous l
 
 <p>
 
-![2D Rod Spread Vizualization](/github/ohia_spread_2d.gif)
+![2D Rod Spread Vizualization](/github/2d_rod_spread.gif)
 
 </p>
 
