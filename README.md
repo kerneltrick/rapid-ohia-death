@@ -149,6 +149,7 @@ It should be noted that all the trees are placed at z = 0, meaning that they are
 
 The bpy script will finish executing and produce a .
 
+![3D Rod Spread Vizualization](/github/ohia_spread_1.gif)
 
 # Acknowldegments
 
