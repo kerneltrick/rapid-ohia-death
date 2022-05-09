@@ -20,13 +20,16 @@ The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Rin
 
 ## Location Data
 
-ROD can spread over an extended time frame, causing devastation to an enormous landmass over the course of a decade or more. [Researchers at the Univrsity of Hawaii](https://www.mdpi.com/1999-4907/12/8/1035) have collected location data in order to track the spread of ROD over time in a single forest, and discover the patterns that characterize the communication of the pathogen through a forest. This 2-D data is useful for visualizing how large of an area ROD can spread over in a short time. We can visualize this spread with the script (/utils/2d_change_over_time.py). Simply
+ROD can spread over an extended time frame, causing devastation to an enormous landmass over the course of a decade or more. [Researchers at the Univrsity of Hawaii](https://www.mdpi.com/1999-4907/12/8/1035) have collected location data in order to track the spread of ROD over time in a single forest, and discover the patterns that characterize the communication of the pathogen through a forest. This 2-D data is useful for visualizing how large of an area ROD can spread over in a short time. If you want to get a quick, simple 2d visualization of your data use the script
 
-<p>
+```bash
+(/utils/2d_change_over_time.py).
+```
+
+This script simply reads your data file (data format is discussed below), and outputs a heatmap that visualizes a 2d timelapse of the health of the fortest:
 
 ![2D Rod Spread Vizualization](/github/2d_rod_spread.gif)
 
-</p>
 
 ## 3D Visualization in Blender
 
@@ -34,11 +37,17 @@ ROD can spread over an extended time frame, causing devastation to an enormous l
 
 ![3D Rod Spread Vizualization 1](/github/ohia_pointcloud.gif)
 
-The designers of this codebase are not graphic artists, we are software developers, so we wanted to build a tool to allow other software developers to investigate the visualization of ROD spread patterns. This codebase is built on tools provided by the [PyPl bpy library](https://pypi.org/project/bpy/). Bpy is a set of tools that lets us control blender's rendering background programmitcally via [Python3](https://pypi.org/project/bpy/).
+The designers of this codebase are not graphic artists, we are software developers, so we wanted to build a tool to allow other software developers to investigate the visualization of ROD spread patterns. This codebase is built on tools provided by the [PyPl bpy library](https://pypi.org/project/bpy/). Bpy is a set of tools that lets us control blender's rendering background programmitcally via [Python3](https://pypi.org/project/bpy/). Bpy utilizes Blender's low level Python functionality, so anything possible in Blender can also be accomplished in Bpy:
 
 <br>
 
 ![3D Rod Spread Vizualization 2](/github/3d_rod_spread_2.gif)
+
+## System Flowchart
+
+Our
+
+![System Flowchart](/github/flowchart.png)
 
 # How to use this code
 
@@ -150,10 +159,6 @@ It should be noted that all the trees are placed at z = 0, meaning that they are
 The bpy script will finish executing and produce a .
 
 ![3D Rod Spread Vizualization 3](/github/3d_rod_spread_1.gif)
-
-## System Flowchart
-
-![System Flowchart](/github/flowchart.png)
 
 # Acknowledgements
 
