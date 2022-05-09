@@ -32,6 +32,8 @@ ROD can spread over an extended time frame, causing devastation to an enormous l
 
 The designers of this codebase are not graphic artists, we are software developers, so we wanted to build a tool other software developers to investigate the visualization of ROD spread patterns. This codebase is built on tools provided by the [PyPl bpy library](https://pypi.org/project/bpy/). Bpy is a set of tools that lets us control blender's rendering background programmitcally via [Python3](https://pypi.org/project/bpy/).
 
+<br>
+
 ![ROD 3d](/github/ohia_spread-big-circle_down_sampled.gif)
 
 # How to use this code
