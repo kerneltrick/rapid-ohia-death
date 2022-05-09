@@ -10,7 +10,11 @@ This project was motivated by the work of researchers at the University of Hawai
 
 The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Ring](https://github.com/rypring) and Carina Shintaku
 
-<br>
+## Requirements
+
+[Download Python 3](https://www.python.org/downloads/) Python3 is required in order to use this codebase. Download Python 3 to get started!
+
+[Download Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html) Conda is also needed! Conda is an open source package management sytem that runs on Mac, Winodows, and Linux! Conda runs and updates packages needed for this souce code.
 
 # Visualizing Rapid Ohia Death Spread
 
