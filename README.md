@@ -47,9 +47,9 @@ MAX_ORD is the size of the x,y plane that the visualization will be generated on
 
 CAMERA_HEIGHT is the height of the camera, pointed towards the origin. 
 
-START is ????
+START is the timestamp that you want to start at (should be 0)
 
-STOP is ????
+STOP is the timestamp that you want to end at
 
 FRAMES_PER_STEP is the number of frames at a particular location 
 
@@ -63,8 +63,17 @@ Now that we have the data, models and source code in the same directory, we can 
 blender -P blender_forest.py
 ```
 
-This will create a directory of images that will be used to make a short video of your visualization. 
+This will create a directory of images that will be used to make a short video of your visualization.
 
+This program is very computationally intensive, and will take on the order of a few hours to render the whole set of images, depending on the number of trees, textures in the environment, etc. 
+
+If someone wanted to be more creative with the environment they are putting the trees in, they can simply edit a .blend file and make an environment that they like. Then they would use:
+
+```bash
+blender --background myFile.blend -P blender_forest.py
+```
+
+It should be noted that all the trees are placed at z = 0, meaning that they are all on the ground.  
 
 <br>
 
