@@ -151,6 +151,10 @@ The bpy script will finish executing and produce a .
 
 ![3D Rod Spread Vizualization 3](/github/3d_rod_spread_1.gif)
 
-# Acknowldegments
+## System Flowchart
+
+![System Flowchart](/github/flowchart.png)
+
+# Acknowledgements
 
 We would like to thank the instructors at the University of Hawaii at Hilo Computer Science and Art Departments for guidance in developing these software tools. We would also like give special thanks to Dr. Ryan Perroy, who generously guided us and gave feedback throughout the design, planning, and development stages.
