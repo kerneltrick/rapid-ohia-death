@@ -34,4 +34,4 @@ for i in range(timesteps):
     plt.savefig("../images/2d/{}.png".format(i))
     tx.remove()
 
-render_video("../videos/2d.avi", "../images/2d/")
+render_video("../videos/rod_2d.avi", "../images/2d/")
