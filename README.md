@@ -77,7 +77,7 @@ It should be noted that all the trees are placed at z = 0, meaning that they are
 
 # Visualizing Rapid Ohia Death Spread
 
-![2D Rod Spread Vizualization](/github/rod_spread_2d.gif)
+![2D Rod Spread Vizualization](/github/ohia_spread_2d.gif)
 
  
   
