@@ -24,11 +24,15 @@ ROD can spread over an extended time frame, causing devastation to an enormous l
 
 </p>
 
-## 3D Visualization
+## 3D Visualization in Blender
+
+[Blender](https://www.blender.org/download/) is a 3D design tool used by designers and graphic artists for rendering 3D scenes. Blender can be used for rendering intensely vivid and realistic 3D worlds:
 
 ![3D Rod Spread Vizualization](/github/RODflyover2.gif)
 
-![[ROD 3d](/github/rod_3d.png)](https://www.youtube.com/watch?v=B1mBQrhFZqg "ROD 3d")
+The designers of this codebase are not graphic artists, we are software developers, so we wanted to build a tool other software developers to investigate the visualization of ROD spread patterns. This codebase is built on tools provided by the [PyPl bpy library](https://pypi.org/project/bpy/). Bpy is a set of tools that lets us control blender's rendering background programmitcally via [Python3](https://pypi.org/project/bpy/).
+
+![[ROD 3d](/github/ohia_spread-big-circle_down_sampled.gif)
 
 # How to use this code
 
