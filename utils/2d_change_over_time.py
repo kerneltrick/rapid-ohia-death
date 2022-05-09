@@ -31,7 +31,7 @@ for i in range(timesteps):
     sc = ax.scatter(x=data["POINT_X"], y=data["POINT_Y"], c=data.iloc[:, 3+i], cmap=cm)
     tx = plt.text(251101,2143120, data.columns[3+i])
     plt.pause(0.01)
-    plt.savefig("../images/2d/rod_{}.jpg".format(i))
+    plt.savefig("../images/2d/{}.png".format(i))
     tx.remove()
 
 render_video("../videos/2d.avi", "../images/2d/")

@@ -4,7 +4,7 @@ import cv2
 from datetime import datetime
 from datetime import timedelta
 
-def render_video(video_name="../videos/ohia_spread", images_folder="../images/3d"):
+def render_video(video_name="../videos/ohia_spread", imagee_folder="../images/3d"):
     date = datetime(2010, 6, 10)
     endDate = datetime(2021, 10, 23)
 
@@ -28,7 +28,7 @@ def render_video(video_name="../videos/ohia_spread", images_folder="../images/3d
 
     timeIncrement = (endDate - date) /numImages
     for i in range(numImages):
-        imageFileName = "rod_" + str(i) + ".jpg"
+        imageFileName = str(i) + ".png"
         path = os.path.join(image_folder, imageFileName)
         image = cv2.imread(path)
         window_name = 'Image'
@@ -42,8 +42,17 @@ def render_video(video_name="../videos/ohia_spread", images_folder="../images/3d
         org = (50, 400)
         text = date.strftime("Month: %m")
         image = cv2.putText(image, text, org, font, fontScale, color, thickness, cv2.LINE_AA)
+        print("writing image", i)
         video.write(image)
         date += timeIncrement
 
     cv2.destroyAllWindows()
     video.release()
+
+if __name__=="__main__":
+
+    if len(sys.argv) < 2:
+        print("USAGE:", sys.argv[0], "imageDir")
+        exit(2)
+    imageDir = sys.argv[1]
+    render_video("../videos/video.avi", imageDir)
