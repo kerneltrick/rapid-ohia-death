@@ -5,12 +5,14 @@ import math
 import random
 import sys
 
+from utils.render_video import render_video
+
 """
 ==================================
               CONFIG
 ==================================
 """
-MAX_ORD = 30
+MAX_ORD = 40
 CAMERA_HEIGHT = 30
 PI = 3.14159265
 CROP_RANGE_X = (-MAX_ORD, MAX_ORD)
@@ -19,7 +21,8 @@ START = 0
 STOP = 60
 TIME_STEPS = START - STOP
 FRAMES_PER_STEP = 5
-NUM_TREE_VARIETIES = 2
+NUM_TREE_VARIETIES = 1
+OUTPUT_VIDEO = "ROD_SPREAD_3D.avi"
 """
 ==================================
 """
@@ -93,6 +96,8 @@ class DataLoader:
                 # z is always 0; no consideration of terrain
                 tree["z"] = 0
                 tree["health"] = [int(x) for x in row[3+START:3+STOP]]
+                if tree["health"] < 0:
+                    tree["health"] = 0
                 data.append(tree)
         self.data = data
         self._set_range()
@@ -104,8 +109,8 @@ class Tree:
     def __init__(self, x, y, z=0, healthHistory = None ):
         self.x = x
         self.y = y
-        self.z = math.tan(5.3*(PI/180.0)) * y
-        self.type = random.randint(2,NUM_TREE_VARIETIES)
+        self.z = 0.0
+        self.type = random.randint(1,NUM_TREE_VARIETIES)
         self.health = healthHistory[0]
         self.healthHistory = healthHistory
         self.name = None
@@ -193,6 +198,7 @@ def time_lapse_circle(forest):
             render_image(index=str(i))
             i += 1
         forest.update(timeStep+1, strict=True)
+    render_video("./videos/" + CONFIG["OUTPUT_VIDEO"], "./images/3d/")
     print("TIMELAPSE COMPLETE")
 
 def load_location_data(fileName):
