@@ -81,6 +81,7 @@ If you want to use more realistic models or any other model in .fbx format, that
 
 When you have all your files set up, your blender folder should look like this:
 
+```bash
 ├── blender
 │   ├── background.exr
 │   ├── ground.fbx
@@ -109,10 +110,7 @@ When you have all your files set up, your blender folder should look like this:
 │           ├── 2.fbx
 │           ├── 3.fbx
 │           └── 4.fbx
-
-
-
-
+```
 
 We also need a terrain to place our trees on, so we made another model in Blender that is just a plane. Again, we kept it simple due to the computational demands of this program.
 
