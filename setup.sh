@@ -5,6 +5,8 @@ pip install gdown
 
 # SETUP DIRS
 mkdir images
+mkdir images/2d
+mkdir images/3d
 mkdir videos
 
 # GET WEIGHTS

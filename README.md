@@ -28,7 +28,7 @@ ROD can spread over an extended time frame, causing devastation to an enormous l
 
 ![3D Rod Spread Vizualization](/github/RODflyover2.gif)
 
-![[ROD 3d](https://www.youtube.com/watch?v=B1mBQrhFZqg)](/github/rod_3d.png)
+![[ROD 3d](/github/rod_3d.png)](https://www.youtube.com/watch?v=B1mBQrhFZqg "ROD 3d")
 
 # How to use this code
 
