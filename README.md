@@ -23,7 +23,7 @@ The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Rin
 ROD can spread over an extended time frame, causing devastation to an enormous landmass over the course of a decade or more. [Researchers at the Univrsity of Hawaii](https://www.mdpi.com/1999-4907/12/8/1035) have collected location data in order to track the spread of ROD over time in a single forest, and discover the patterns that characterize the communication of the pathogen through a forest. This 2-D data is useful for visualizing how large of an area ROD can spread over in a short time. If you want to get a quick, simple 2d visualization of your data use the script
 
 ```bash
-(/utils/2d_change_over_time.py).
+/utils/2d_change_over_time.py
 ```
 
 This script simply reads your data file (data format is discussed below), and outputs a heatmap that visualizes a 2d timelapse of the health of the fortest:
@@ -45,7 +45,7 @@ The designers of this codebase are not graphic artists, we are software develope
 
 ## System Flowchart
 
-Our
+Our system follows a very simple loop. Data is read in (data format is specified below), and we then use Bpy to build a full, healthy ohia forest from 3D tree models in Blender. Trees are placed in the forest according to their location data in the input csv. Then, a timelapse loop begins; for each iteration of this loop, the next timestep in the csv is read and used to update the health of the trees in the forest.
 
 ![System Flowchart](/github/flowchart.png)
 
@@ -156,7 +156,13 @@ blender --background myFile.blend -P blender_forest.py
 
 It should be noted that all the trees are placed at z = 0, meaning that they are all on the ground.  
 
-The bpy script will finish executing and produce a .
+The bpy script will finish executing and produce an output video in
+
+```bash
+/videos
+```
+
+The output should look something like this:
 
 ![3D Rod Spread Vizualization 3](/github/3d_rod_spread_1.gif)
 
