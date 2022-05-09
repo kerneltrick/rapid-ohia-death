@@ -165,7 +165,7 @@ It should be noted that all the trees are placed at z = 0, meaning that they are
 The bpy script will finish running and produce a set of images. To render the video, type:
 
 ```bash
-./utils/render_video.py
+python ./utils/render_video.py
 ```
 
 The output video will be saved in:
