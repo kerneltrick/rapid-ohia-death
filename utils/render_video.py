@@ -4,7 +4,7 @@ import cv2
 from datetime import datetime
 from datetime import timedelta
 
-def render_video(video_name="../videos/ohia_spread", imagee_folder="../images/3d"):
+def render_video(video_name="../videos/ohia_spread", image_folder="../images/3d"):
     date = datetime(2010, 6, 10)
     endDate = datetime(2021, 10, 23)
 
