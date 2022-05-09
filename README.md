@@ -43,20 +43,24 @@ We also need a terrain to place our trees on, so we made another model in Blende
 
 **Code**
 
-At the top of the script, there's a config that allows you to tweak variables based on the type of visualization you want to make. 
+<ul>
 
-MAX_ORD is the size of the x,y plane that the visualization will be generated on.
+<li> At the top of the script, there's a config that allows you to tweak variables based on the type of visualization you want to make. </li>
 
-CAMERA_HEIGHT is the height of the camera, pointed towards the origin. 
+<li> MAX_ORD is the size of the x,y plane that the visualization will be generated on. </li>
 
-START is the timestamp that you want to start at (should be 0)
+<li> CAMERA_HEIGHT is the height of the camera, pointed towards the origin. </li>
 
-STOP is the timestamp that you want to end at
+<li> START is the timestamp that you want to start at (should be 0) </li>
 
-FRAMES_PER_STEP is the number of frames at a particular location 
+<li> STOP is the timestamp that you want to end at </li>
 
-NUM_TREE_VARIETIES would be the number of variations on the fbx tree models you've used
+<li> FRAMES_PER_STEP is the number of frames at a particular location </li>
 
+    <li> NUM_TREE_VARIETIES would be the number of variations on the fbx tree models you've used </li>
+
+</ul>
+    
 **Run the code**
 
 Now that we have the data, models and source code in the same directory, we can run the code using the following:
