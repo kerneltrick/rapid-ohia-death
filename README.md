@@ -16,7 +16,7 @@ The code was written by [Mark Jimenez](https://github.com/kerneltrick), [Ryp Rin
 
 ## Location Data
 
-ROD can spread over an extended time frame, causing devastation to an enormous landmass over the course of a decade or more. [Researchers at the Univrsity of Hawaii](https://www.mdpi.com/1999-4907/12/8/1035) have collected location data in order to track the spread of ROD over time in a single forest, and discover the patterns that characterize the communication of the pathogen through a forest. This 2-D data is useful for visualizing how large of an area ROD can spread over in a short time. We can visualize this spread with the script (/utils/2d_change_over_time.py). Simply 
+ROD can spread over an extended time frame, causing devastation to an enormous landmass over the course of a decade or more. [Researchers at the Univrsity of Hawaii](https://www.mdpi.com/1999-4907/12/8/1035) have collected location data in order to track the spread of ROD over time in a single forest, and discover the patterns that characterize the communication of the pathogen through a forest. This 2-D data is useful for visualizing how large of an area ROD can spread over in a short time. We can visualize this spread with the script (/utils/2d_change_over_time.py). Simply
 
 <p>
 
@@ -30,7 +30,7 @@ ROD can spread over an extended time frame, causing devastation to an enormous l
 
 ![3D Rod Spread Vizualization](/github/RODflyover2.gif)
 
-The designers of this codebase are not graphic artists, we are software developers, so we wanted to build a tool other software developers to investigate the visualization of ROD spread patterns. This codebase is built on tools provided by the [PyPl bpy library](https://pypi.org/project/bpy/). Bpy is a set of tools that lets us control blender's rendering background programmitcally via [Python3](https://pypi.org/project/bpy/).
+The designers of this codebase are not graphic artists, we are software developers, so we wanted to build a tool to allow other software developers to investigate the visualization of ROD spread patterns. This codebase is built on tools provided by the [PyPl bpy library](https://pypi.org/project/bpy/). Bpy is a set of tools that lets us control blender's rendering background programmitcally via [Python3](https://pypi.org/project/bpy/).
 
 <br>
 
